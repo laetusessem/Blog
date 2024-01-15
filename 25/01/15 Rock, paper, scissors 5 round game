@@ -1,0 +1,57 @@
+# Rock, paper, scissors 5 round game
+import random
+
+possibilities = ['rock', 'paper', 'scissors']
+r = 1
+i, j = 0, 0 #i is user's marks'，j is computer's marks'
+ip, jp = 0, 0
+gamers = {i : 'user', j : 'computer'}
+for r in range(5):
+    user = input('One, two, what is it?')
+    computer = possibilities[random.randint(0, 2)]
+    print(computer)
+    if user == computer:
+        i += 0
+        j += 0
+        if user.lower == 'rock' and computer.lower == 'scissors':
+            i += 1
+            j += 0
+        else:
+            if user.lower == 'rock' and computer.lower == 'paper':
+                i += 0
+                j += 1
+            else:
+                if user.lower == 'paper' and computer.lower == 'rock':
+                    i += 1
+                    j += 0
+                else:
+                    if user.lower =='paper' and computer.lower == 'scissors':
+                        i += 0
+                        j += 1
+                    else:
+                        if user.lower == 'scissors' and computer == 'paper':
+                            i += 1
+                            j += 0
+                        else:
+                            if user.lower == 'scissors' and computer == 'rock':
+                                i += 0
+                                j += 1
+                            else:
+                                i += 0
+                                j += 0
+    r += 1
+    if r == 3:
+        if i == 3 or j == 3:
+            print('Voila, the winner is', gamers[max(i, j)],'!')
+        else:
+            continue
+    if r == 4:
+        if i > (j + 1) or (i + 1) < j:
+            print('Here we got the winner', gamers[max(i, j)],'!')
+        else:
+            continue
+    if r == 5:
+        if i == j:
+            print('Congrats our winner', gamers[max(i, j)],'!')
+        else:
+            print('Maybe another round?')
